@@ -13,11 +13,16 @@ namespace console_timer
         {
             int seconds = 60;
             int minutes = 25;
-            for(seconds = 60; seconds >=0; seconds--)
+            for(seconds = 60; seconds >= 0; seconds--)
             {
                 Console.SetCursorPosition(0,2);
                 Console.Write("Generating Preview in {0}:{1}",minutes, seconds);
                 System.Threading.Thread.Sleep(1000);
+                if(seconds == 0 && minutes != 0)
+                {
+                    minutes--;
+                    seconds = 60;
+                }
             }
 
         }
